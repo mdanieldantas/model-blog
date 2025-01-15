@@ -11,7 +11,6 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 
-
 // Configuração para ler dados do formulário html para que o express entenda e manipule os dados do formulário html para o servidor express ler as instrings do formulário
 app.use(express.urlencoded({ extended: true }))
 
@@ -31,7 +30,13 @@ app.get("/formulario",(req,res)=>{
 app.post("/register",(req,res)=>{
 const username = req.body.username
 const password = req.body.password
-storedUsers.push({username,password})
+
+    // Cria um objeto user com as propriedades username e password
+    const user = { username, password };
+    
+
+    // Adiciona o objeto user à lista storedUsers
+    storedUsers.push(user);
 
 res.redirect("/usuarios")
 })
