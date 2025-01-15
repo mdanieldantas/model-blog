@@ -19,9 +19,14 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware para servir arquivos estáticos (como imagens, CSS, JavaScript) da pasta 'public'
 app.use(express.static('public'));
 
+app.get("/", (req, res) => {
+    const title = "Home";
+    const mensage = "Bem vindo ao meu site";
+
+    res.render("index", { title, mensage });
+});
+
 // Define a porta na qual o servidor irá escutar. Usa a porta definida em process.env.PORT ou 3000 se não estiver definida
 const PORT = process.env.PORT || 3000;
-
 // Inicia o servidor e faz com que ele escute na porta definida. Exibe uma mensagem no console quando o servidor está pronto
 app.listen(PORT, () => console.log(`Servidor iniciado!\nRodando em http://localhost:${PORT}/`));
-
