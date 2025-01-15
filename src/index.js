@@ -20,6 +20,11 @@ const mensage = "Bem vindo ao projeto MVC"
     res.render('index',{title,mensage})
 })
 
+app.get("/formulario",(req,res)=>{
+    res.render("form")
+    
+})
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Servidor iniciado!\nRodando em http://localhost:${PORT}/`))
 
