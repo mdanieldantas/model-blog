@@ -22,12 +22,19 @@ const adminController = {
 
     res.redirect("/admin");
   },
-  
+
   //GET /admin/edit/:id
 
+  
   //POST /admin/update/:id
 
+
   //POST /admin/delete/:id
-};
+  delete: (req, res) => {
+    const id = req.params.id;
+    postModel.deletePost(id);
+    res.redirect("/admin");
+  }
+}
 
 module.exports = adminController;
