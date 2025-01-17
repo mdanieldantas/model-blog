@@ -10,6 +10,8 @@ router.get("/posts/:id", postsController.show);
 
 //Rotas do Admin
 router.get("/admin",adminController.index);
+router.get("/admin/create",adminController.create);
+router.post("/admin/create",adminController.save);
 
 
 
