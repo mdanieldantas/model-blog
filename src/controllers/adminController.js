@@ -1,22 +1,33 @@
 const postModel = require("../models/postModel");
 
 const adminController = {
-    //GET /admin
-    index: (req, res) => {
-        const posts = postModel.getAllPosts();
-    
-        res.render("admin", { posts });
-      },
+  //GET /admin
+  index: (req, res) => {
+    const posts = postModel.getAllPosts();
 
-    //GET /admin/create
+    res.render("admin", { posts });
+  },
 
-    //POST /admin/create
+  //GET /admin/create
+  create: (req, res) => {
+    res.render("newPostForm");
+  },
 
-    //GET /admin/edit/:id
+  //POST /admin/create
+  save: (req, res) => {
+    const { title, content } = req.body;
 
-    //POST /admin/update/:id
+    const newPost = postModel.createPost(title, content);
+    postModel.savePost(newPost);
 
-    //POST /admin/delete/:id
+    res.redirect("/admin");
+  },
+  
+  //GET /admin/edit/:id
+
+  //POST /admin/update/:id
+
+  //POST /admin/delete/:id
 };
 
 module.exports = adminController;
