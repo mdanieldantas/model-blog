@@ -1,3 +1,5 @@
+const postModel = require("../models/postModel");
+
 const adminController = {
     //GET /admin
     index: (req, res) => {
