@@ -12,6 +12,7 @@ router.get("/posts/:id", postsController.show);
 router.get("/admin",adminController.index);
 router.get("/admin/create",adminController.create);
 router.post("/admin/create",adminController.save);
+router.post("/admin/delete/:id",adminController.delete);
 
 
 
